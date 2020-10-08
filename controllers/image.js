@@ -25,5 +25,6 @@ const handleImage=(req,res)=>{
 }
 
 module.exports={
-    handleImage:handleImage
+    handleImage:handleImage,
+    handleApicall:handleApicall
 }
