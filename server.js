@@ -15,7 +15,7 @@ const db= knex({   client:'pg',connection:process.env.DATABASE_URL, ssl:true });
 
 const app=express();
 app.use(express.json());
-//app.use(cors());
+app.use(cors());
 app.get('/',(req,res)=>{
     res.send('server back-end is working')
 })
