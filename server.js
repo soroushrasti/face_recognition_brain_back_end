@@ -17,7 +17,7 @@ const app=express();
 app.use(express.json());
 app.use(cors());
 app.get('/',(req,res)=>{
-    res.send('server back-end is working')
+    res.send('server back-end is working properly')
 })
 
 app.post('/signin',(req,res)=>{signin.handleSignin(req,res,db,bycrpt)})
