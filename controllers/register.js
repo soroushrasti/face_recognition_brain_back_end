@@ -5,7 +5,6 @@ const handleRegister=(req,res,db,bycrpt)=>{
     }
     const hash=bycrpt.hashSync(password);
     db.transaction(trx=>{
-
         trx.insert({hash:hash,email:email})
         .into('login')
         .returning('email')
@@ -17,7 +16,7 @@ const handleRegister=(req,res,db,bycrpt)=>{
         .then(trx.commit)
         .catch(trx.rollback ) 
         })
-    .catch(err=>res.status(400).json(err) )
+    .catch(err=>res.status(400).json('unable to register') )
 }
 
 module.exports={

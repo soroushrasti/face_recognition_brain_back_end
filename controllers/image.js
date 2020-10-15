@@ -1,19 +1,19 @@
-const Clarifai=require('clarifai')
+const clarifai=require('clarifai')
 
-const appcalrifai =new Clarifai.App({
-    apiKey:"13f27f1f734f454d8c959f960c8ccc26"
+
+const appcalrifai =new clarifai.App({
+    apiKey:"b48024407ad04798a8eb1429fcc41f5b"
 
 });
 
 const handleApicall=(req,res)=>{
-
     appcalrifai.models
-    .predict(Clarifai.FACE_DETECT_MODEL,req.body.input)
+    .predict(clarifai.FACE_DETECT_MODEL,req.body.input)
     .then(data=>{res.json(data);})
-    //.then(data=>{console.log('I am in apicall', data)})
     .catch(err=>{res.status(400).json('unable to get API')})
 }
-const handleImage=(req,res,db)=>{
+
+const handleImage=(req,res)=>{
     const {id}=req.body;
     db('users').where('id','=',id)
     .increment('entries',1)
@@ -25,7 +25,6 @@ const handleImage=(req,res,db)=>{
 }
 
 module.exports={
-    handleImage,
-    handleApicall
-
+    handleImage:handleImage,
+    handleApicall:handleApicall
 }
