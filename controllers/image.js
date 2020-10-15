@@ -25,6 +25,10 @@ const handleImage=(req,res,db)=>{
 }
 
 module.exports={
+<<<<<<< HEAD
     handleImage,
     handleApicall
+=======
+    handleImage:handleImage
+>>>>>>> parent of 631c420... fixing handleApicall
 }
