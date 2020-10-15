@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 const express = require('express');
 const bycrpt=require('bcrypt-nodejs');
 const knex=require('knex');
@@ -36,7 +29,7 @@ app.get('/',(req,res)=>{
 app.post('/signin',(req,res)=>{signin.handleSignin(req,res,db,bycrpt)})
 app.post('/register',(req,res)=>{register.handleRegister(req,res,db,bycrpt)})
 app.get('/profile/:id',(req,res)=>{profile.handleProfileGet(req,res,db)})
-app.put('/image',(req,res)=>{image.handleImage(req,res)})
+app.put('/image',(req,res)=>{image.handleImage(req,res,db)})
 app.post('/imageurl', (req,res)=>{image.handleApicall(req,res)})
 app.listen(process.env.PORT || 3000,()=>{
     console.log('server is running listening')})
